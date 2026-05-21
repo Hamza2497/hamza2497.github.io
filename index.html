@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hamza Assaf — Full-Stack Developer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-dim: #1f6feb;
+      --green: #3fb950;
+      --tag-bg: #21262d;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 72px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: var(--accent-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      flex-shrink: 0;
+      border: 2px solid var(--border);
+    }
+    .hero-text h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .hero-text .tagline {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-top: 4px;
+    }
+    .hero-text .open-badge {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    /* ── Bio ── */
+    .bio {
+      padding: 40px 0 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .bio p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 640px;
+    }
+    .bio p + p { margin-top: 12px; }
+
+    /* ── Stack ── */
+    .stack {
+      padding: 40px 0 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 0.82rem;
+      color: var(--text);
+    }
+
+    /* ── Projects ── */
+    .projects {
+      padding: 40px 0 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 16px;
+      margin-top: 4px;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      transition: border-color 0.15s;
+    }
+    .project-card:hover { border-color: var(--accent-dim); }
+    .project-card .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .project-card .card-icon {
+      font-size: 1.1rem;
+    }
+    .project-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .project-card h3 a { color: var(--accent); }
+    .project-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .card-tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .badge-new {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 1px 7px;
+      border-radius: 20px;
+      background: var(--accent-dim);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 600;
+      vertical-align: middle;
+    }
+
+    /* ── Contact ── */
+    .contact {
+      padding: 40px 0 64px;
+    }
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 4px;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+    .contact-link svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 540px) {
+      .hero-text h1 { font-size: 1.6rem; }
+      .project-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="avatar">H</div>
+      <div class="hero-text">
+        <h1>Hamza Assaf</h1>
+        <p class="tagline">AI-augmented full-stack developer · Beirut, Lebanon</p>
+        <span class="open-badge">● Open to backend &amp; full-stack roles</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bio -->
+  <section class="bio">
+    <p>
+      I build backend systems with .NET and ASP.NET Core, ship frontends in React and Angular, and integrate LLMs into production workflows.
+      At Invisible Technologies I evaluate LLM outputs at scale — now I'm turning that expertise into developer tooling.
+    </p>
+    <p>
+      I use Claude and AI pair-programming as a daily force multiplier: moving faster on boilerplate, staying focused on architecture and correctness.
+    </p>
+  </section>
+
+  <!-- Stack -->
+  <section class="stack">
+    <p class="section-label">Stack</p>
+    <div class="tags">
+      <span class="tag">C# · .NET 8</span>
+      <span class="tag">ASP.NET Core</span>
+      <span class="tag">Python</span>
+      <span class="tag">React</span>
+      <span class="tag">Angular</span>
+      <span class="tag">TypeScript</span>
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">AWS</span>
+      <span class="tag">Docker</span>
+      <span class="tag">GitHub Actions</span>
+      <span class="tag">MCP</span>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects">
+    <p class="section-label">Projects</p>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-icon">🔬</span>
+          <h3>
+            <a href="https://github.com/Hamza2497/mcp-eval-server" target="_blank" rel="noopener">mcp-eval-server</a>
+            <span class="badge-new">NEW</span>
+          </h3>
+        </div>
+        <p>Python MCP server exposing structured LLM evaluation tools — factual accuracy, logical consistency, rubric scoring — callable from Claude Desktop or any MCP-compatible agent.</p>
+        <div class="card-tags">
+          <span class="card-tag">Python</span>
+          <span class="card-tag">MCP</span>
+          <span class="card-tag">LLM Eval</span>
+          <span class="card-tag">Pydantic</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-icon">🍽️</span>
+          <h3><a href="https://github.com/Hamza2497/RecipeVault" target="_blank" rel="noopener">RecipeVault</a></h3>
+        </div>
+        <p>Full-stack recipe management app. .NET 8 REST API with Gemini AI integration for smart suggestions, React + Vite + Tailwind frontend, deployed on Render and Vercel.</p>
+        <div class="card-tags">
+          <span class="card-tag">C#</span>
+          <span class="card-tag">.NET 8</span>
+          <span class="card-tag">React</span>
+          <span class="card-tag">Gemini API</span>
+          <span class="card-tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-icon">📚</span>
+          <h3><a href="https://github.com/Hamza2497/Mini-Library-Management-Sys" target="_blank" rel="noopener">Mini Library System</a></h3>
+        </div>
+        <p>Library management API with JWT auth, Google SSO, RBAC, and a full GitHub Actions CI/CD pipeline. .NET 8 + EF Core + PostgreSQL.</p>
+        <div class="card-tags">
+          <span class="card-tag">C#</span>
+          <span class="card-tag">.NET 8</span>
+          <span class="card-tag">PostgreSQL</span>
+          <span class="card-tag">JWT</span>
+          <span class="card-tag">CI/CD</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact">
+    <p class="section-label">Get in touch</p>
+    <div class="contact-links">
+
+      <a class="contact-link" href="https://linkedin.com/in/hamzah-assaf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        linkedin.com/in/hamzah-assaf
+      </a>
+
+      <a class="contact-link" href="https://github.com/Hamza2497" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+        github.com/Hamza2497
+      </a>
+
+      <a class="contact-link" href="mailto:hamzahassaf08@gmail.com">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.910 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+        </svg>
+        hamzahassaf08@gmail.com
+      </a>
+
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>
