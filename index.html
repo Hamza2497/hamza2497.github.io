@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hamza Assaf — Full-Stack Developer</title>
+  <title>Hamza Assaf — Full-Stack & AI Developer</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -89,11 +89,7 @@
     }
     .bio p + p { margin-top: 12px; }
 
-    /* ── Stack ── */
-    .stack {
-      padding: 40px 0 32px;
-      border-bottom: 1px solid var(--border);
-    }
+    /* ── Section shared ── */
     .section-label {
       font-size: 0.75rem;
       font-weight: 600;
@@ -101,6 +97,61 @@
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 16px;
+    }
+
+    /* ── Experience ── */
+    .experience {
+      padding: 40px 0 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-entry {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .exp-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .exp-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .exp-company {
+      color: var(--accent);
+    }
+    .exp-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .exp-bullets {
+      list-style: none;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .exp-bullets li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding-left: 14px;
+      position: relative;
+    }
+    .exp-bullets li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    /* ── Stack ── */
+    .stack {
+      padding: 40px 0 32px;
+      border-bottom: 1px solid var(--border);
     }
     .tags {
       display: flex;
@@ -114,6 +165,32 @@
       padding: 4px 12px;
       font-size: 0.82rem;
       color: var(--text);
+    }
+
+    /* ── Certifications ── */
+    .certifications {
+      padding: 40px 0 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cert-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .cert-name {
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+    .cert-date {
+      font-size: 0.82rem;
+      color: var(--muted);
     }
 
     /* ── Projects ── */
@@ -197,6 +274,28 @@
       transition: background 0.15s;
     }
     .card-link-live:hover { background: var(--accent-dim); color: #fff; text-decoration: none; }
+    .card-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 10px;
+      font-style: italic;
+    }
+    .project-card.wip {
+      opacity: 0.6;
+      border-style: dashed;
+    }
+    .project-card.wip:hover { border-color: var(--border); opacity: 0.75; }
+    .badge-wip {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 1px 7px;
+      border-radius: 20px;
+      border: 1px solid var(--muted);
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 600;
+      vertical-align: middle;
+    }
 
     /* ── Contact ── */
     .contact {
@@ -255,13 +354,31 @@
     </p>
   </section>
 
+  <!-- Experience -->
+  <section class="experience">
+    <p class="section-label">Experience</p>
+    <div class="exp-entry">
+      <div class="exp-header">
+        <span class="exp-title">AI Quality Engineer <span class="exp-company">· Invisible Technologies</span></span>
+        <span class="exp-meta">Contractor · 2025 – present</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Quality gatekeeper for the LLM evaluation pipeline — reviewing model outputs against structured rubrics at scale</li>
+        <li>Training data quality assessment across multiple task types and domains</li>
+        <li>Peer QA and calibration across the evaluation team</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- Stack -->
   <section class="stack">
     <p class="section-label">Stack</p>
     <div class="tags">
       <span class="tag">C# · .NET 8</span>
       <span class="tag">ASP.NET Core</span>
+      <span class="tag">EF Core</span>
       <span class="tag">Python</span>
+      <span class="tag">FastAPI</span>
       <span class="tag">React</span>
       <span class="tag">Angular</span>
       <span class="tag">TypeScript</span>
@@ -270,6 +387,25 @@
       <span class="tag">Docker</span>
       <span class="tag">GitHub Actions</span>
       <span class="tag">MCP</span>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="certifications">
+    <p class="section-label">Certifications</p>
+    <div class="cert-list">
+      <div class="cert-item">
+        <span class="cert-name">AWS Certified Cloud Practitioner</span>
+        <span class="cert-date">Dec 2024</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">Docker Certified Associate</span>
+        <span class="cert-date">Aug 2024</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">Simplilearn DevOps Engineer</span>
+        <span class="cert-date">Sep 2024</span>
+      </div>
     </div>
   </section>
 
@@ -326,10 +462,32 @@
         <div class="card-tags">
           <span class="card-tag">C#</span>
           <span class="card-tag">.NET 8</span>
+          <span class="card-tag">EF Core</span>
           <span class="card-tag">PostgreSQL</span>
           <span class="card-tag">JWT</span>
           <span class="card-tag">CI/CD</span>
         </div>
+        <p class="card-note">API-only — README has endpoint docs and CI/CD pipeline setup.</p>
+      </div>
+
+      <div class="project-card wip">
+        <div class="card-header">
+          <span class="card-icon">🧠</span>
+          <h3>
+            PIP
+            <span class="badge-wip">In progress</span>
+          </h3>
+        </div>
+        <p>Learning layer for AI-assisted developers. Roadmap mode maps your skill gaps and generates a dependency-ordered build plan. Checkpoint mode quizzes you on each concept as you build, evaluates your answer, and marks you proficient. Skills compound across projects. The only AI dev tool that solves the problem AI dev tools created.</p>
+        <div class="card-tags">
+          <span class="card-tag">Python</span>
+          <span class="card-tag">FastAPI</span>
+          <span class="card-tag">Gemini API</span>
+          <span class="card-tag">React</span>
+          <span class="card-tag">PostgreSQL</span>
+          <span class="card-tag">Docker</span>
+        </div>
+        <p class="card-note">Shipping June 2026.</p>
       </div>
 
     </div>
